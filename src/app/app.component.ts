@@ -1,3 +1,4 @@
+import { CounterService } from './shared/services/counter.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'routing';
+
+  constructor(private counter: CounterService) {
+
+  }
+
+  addCount() {
+    this.counter.incrementCounter();
+  }
 }

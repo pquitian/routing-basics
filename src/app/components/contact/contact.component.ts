@@ -1,3 +1,4 @@
+import { CounterService } from './../../shared/services/counter.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,7 +13,8 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private counter: CounterService
   ) { }
 
   ngOnInit() {
@@ -20,8 +22,11 @@ export class ContactComponent implements OnInit {
   }
 
   goAbout() {
-    debugger
     this.router.navigate(['/about'])
+  }
+
+  revealCounter(): number {
+    return this.counter.getCounter();
   }
 
 }
